@@ -1,0 +1,77 @@
+.movie-card{
+display:flex;
+flex-wrap:wrap;
+
+}
+
+.movie{
+display: flex;
+flex-direction: column;
+width:200px;
+text-align: center;
+margin-left:70px;
+height:430px;
+margin-top:40px;
+background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${backgroundUrl});
+background-color: #9a8f93;
+margin:10px;
+border-radius: 5px;
+}
+
+.movie:hover, .movie:active, .movie:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+.img-film{
+    border-radius: 5px;
+    height:250px;
+    width:200px;
+}
+.titre{
+margin-top:0px;
+margin-bottom: 0px;
+color:black;
+font-size: 20px;
+font-weight: 40;
+font-weight: 600;
+}
+.year{
+    margin-top:0px;
+    margin-bottom: 5px;
+}
+.rating{
+    margin-top:0px;
+    margin-bottom: 0px;
+}
+.detail button{
+    width:150px;
+    text-align: center;
+}
+.description{
+    width:200px;
+    margin-top:0px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.bouton-bas{
+display: flex;
+justify-content: space-between;
+margin-right: 10px;
+
+}
+.bouton-edit{
+height:30px;
+width:70px;
+border-radius: 3px;
+
+}
+.bouton-remove{
+border-radius: 3px; 
+height:30px;
+width:70px; 
+margin-right:10px;
+}
+.movie:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }  

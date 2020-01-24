@@ -1,0 +1,21 @@
+.movie-list{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 100px;
+    margin-right: 100px;
+   
+}
+.new-movie-card{
+   
+width:200px;
+text-align: center;
+margin-left:20px;
+height:400px;
+margin-top:10px;
+background-color: #91868a;
+/*margin:10px;*/
+border-radius: 5px;
+font-size: 50px;
+font-weight: 800;
+
+}

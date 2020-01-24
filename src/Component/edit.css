@@ -1,0 +1,23 @@
+.edit {
+    height:30px;
+    width:70px;
+    border-radius: 3px;
+    align-items: center;
+    background-color:#f0f0f0;
+    color: black;
+    padding: 5px 10px;
+    
+    }
+    .cadre{
+        
+        height:300px;
+        width:700px;
+    }
+    .input{
+        height:50px;
+        width:400px;
+        padding:10px 10px;
+    }
+    .titre{
+        text-align: center;
+    }

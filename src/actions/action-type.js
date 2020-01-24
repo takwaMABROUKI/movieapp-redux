@@ -1,0 +1,5 @@
+export const MOVIE_ADD="MOVIE_ADD"
+export const MOVIE_REMOVE="MOVIE_REMOVE"
+export const MOVIE_EDIT="MOVIE_EDIT"
+export const FIND_BYNAME="FIND_BYNAME"
+export const FIND_BYRATING="FIND_BYRATING"

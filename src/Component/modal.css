@@ -1,0 +1,28 @@
+
+
+    .add {
+        width: 200px;
+        text-align: center;
+        margin-left: 10px;
+        height: 430px;
+        margin-top: 10px;
+        background-color: #91868a;
+        /* margin: 10px; */
+        border-radius: 5px;
+        font-size: 50px;
+        font-weight: 800;
+    }
+
+.cadre{
+    
+    height:300px;
+    width:700px;
+}
+.input{
+    height:50px;
+    width:400px;
+    padding:10px 10px;
+}
+.titre{
+    text-align: center;
+}
