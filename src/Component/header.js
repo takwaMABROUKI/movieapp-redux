@@ -8,14 +8,15 @@ import React, { Component } from 'react'
 class Search extends Component {
     state={
       filtre:"",
-      rating:0 ,
+      rating :{watching:0} 
       
     }
     handelChange=(input)=>{
         this.setState( {filtre:input})
       }
       onStarClick=(nextValue)=> {
-        this.setState({rating: nextValue});
+        this.setState({ rating:{watching: nextValue}})
+        
       }
     render() {
         return (
@@ -26,7 +27,7 @@ class Search extends Component {
           name="rate1" 
           starCount={5}
           
-          onStarClick={(this.props.findbyRate(this.state.rating),this.onStarClick)}
+          onStarClick={this.props.findbyRate(this.state.rating.watching),this.onStarClick}
           
         /> 
                 

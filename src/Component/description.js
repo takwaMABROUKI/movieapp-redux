@@ -6,23 +6,23 @@ import './description.css'
 
  class Description extends Component {
     state={
-        id: this.props.match.params.id
+        id: this.props.match.params._id
     }
     
     render() {
       
-        const myTab = this.props.Movies.filter(el => el.id === Number(this.state.id));
+        const myTab = this.props.movies.filter(el => el._id === (this.state.id));
 
     if (myTab.length === 0) {
       return <Redirect to="/" />;
     } 
     else {
-        const { title, year, image, rate } = myTab[0];
+        const { title, year, images, rating } = myTab[0];
 
         return (
             <div className="details">
 
-            <img  className="poster" src={image} alt="" />
+            <img  className="poster" src={images.poster} alt="" />
             <div className="movie-details">
             <p>
               <span>Movie Name:</span> {title}
@@ -38,7 +38,7 @@ import './description.css'
             <StarRatingComponent className="rating"
           name="rate1" 
           starCount={5}
-          value={rate}/>
+          value={rating.watching}/>
           </div>
           </div>
 
@@ -48,7 +48,7 @@ import './description.css'
 }
 }
 const mapStateToProps = state => ({
-  Movies: state.Movies,
+  movies: state.Movies,
   
 });
 

@@ -10,7 +10,7 @@ flex-direction: column;
 width:200px;
 text-align: center;
 margin-left:70px;
-height:430px;
+height:480px;
 margin-top:40px;
 background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${backgroundUrl});
 background-color: #9a8f93;

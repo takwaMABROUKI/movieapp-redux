@@ -8,9 +8,9 @@ class Example extends Component {
   state={
     title:"",
     year:"",
-    image:"",
-    rate:"",
-    id:"",
+    images:"",
+    rating:0,
+    _id:"",
     show:false
   }
    handleClose = () =>this.setState({show:false}) 
@@ -24,7 +24,7 @@ class Example extends Component {
     })
   }
   render() {
-    const {title,year,image,rate}=this.state
+    const {title,year,images,rating}=this.state
     return (
       <div className="cadre">
       <>
@@ -36,7 +36,7 @@ class Example extends Component {
       
           
         
-        <Modal.Body className="titre"><input className="input"  placeholder="Inserer l'image" name="image" type="text" onChange={this.handleChange} value={this.state.image}/></Modal.Body>
+        <Modal.Body className="titre"><input className="input"  placeholder="Inserer l'image" name="images" type="text" onChange={this.handleChange} value={this.state.images.poster}/></Modal.Body>
       
         
         
@@ -46,7 +46,7 @@ class Example extends Component {
         <Modal.Body className="titre"><input className="input" placeholder="Inserer l'année de sortie"  name="year" type="text" onChange={this.handleChange}  value={this.state.year}/></Modal.Body>
 
         
-        <Modal.Body className="titre"><input className="input" placeholder="Inserer le rate"  name="rate" type="text" onChange={this.handleChange}  value={this.state.rate}/></Modal.Body>
+        <Modal.Body className="titre"><input className="input" placeholder="Inserer le rate"  name="rating" type="text" onChange={this.handleChange}  value={this.state.rating.watching}/></Modal.Body>
 
         <Modal.Footer>
          <Button variant="secondary" onClick={this.handleClose}>
@@ -55,11 +55,12 @@ class Example extends Component {
           {/* <Button variant="primary" onClick={()=>{this.handleClose();this.props.handleAdd(this.state)}}>
             ADD
           </Button> */}
-          <Button variant="primary" onClick={()=>this.props.handleAdd({id:Date.now(),
+          <Button variant="primary" onClick={()=>this.props.handleAdd({
+            _id:Date.now(),
             title:this.state.title,
             year:this.state.year,
-            image:this.state.image,
-            rate:this.state.rate
+            images:{poster:this.state.images},
+            rating:{watching:this.state.rating}
             
             })}>
             ADD

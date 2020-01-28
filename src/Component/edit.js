@@ -6,10 +6,11 @@ import './edit.css'
 
 class Edit extends Component {
   state={
-    title:"",
-    year:"",
-    image:"",
-    rate:"",
+    _id:this.props.card._id,
+    title:this.props.card.title,
+    year:this.props.card.year,
+    images:{poster:this.props.card.images.poster},
+    rating:{watching:this.props.card.rating.watching},
     show:false
   }
    handleClose = () =>this.setState({show:false}) 
@@ -22,8 +23,28 @@ class Edit extends Component {
         [e.target.name]:e.target.value
     })
   }
+  handleChangePoster=(e)=>{
+    this.setState({
+        images:{poster:e.target.value}
+    })
+  }
+  handleChangeRating=(e)=>{
+    this.setState({
+        rating:{watching: e.target.value}
+    })
+  }
+  setMovies=(id)=>{
+    let newFilm={
+      _id:this.state._id,
+      title:this.state.title,
+      year:this.state.year,
+      images:{poster:this.state.images.poster},
+      rating:{watching:this.state.rating.watching}
+    }
+    this.props.handleEdit(id, newFilm)
+  }
   render() {
-    const {title,year,image,rate}=this.state
+    const {title,year,images,rating}=this.state
     return (
       <div className="cadre">
       <>
@@ -35,7 +56,7 @@ class Edit extends Component {
       
           
         
-        <Modal.Body className="titre"><input className="input"  placeholder="Inserer l'image" name="image" type="text" onChange={this.handleChange} value={this.state.image}/></Modal.Body>
+        <Modal.Body className="titre"><input className="input"  placeholder="Inserer l'image" name="images" type="text" onChange={this.handleChangePoster} value={this.state.images.poster}/></Modal.Body>
       
         
         
@@ -45,13 +66,18 @@ class Edit extends Component {
         <Modal.Body className="titre"><input className="input" placeholder="Inserer l'année de sortie"  name="year" type="text" onChange={this.handleChange}  value={this.state.year}/></Modal.Body>
 
         
-        <Modal.Body className="titre"><input className="input" placeholder="Inserer le rate"  name="rate" type="text" onChange={this.handleChange}  value={this.state.rate}/></Modal.Body>
+        <Modal.Body className="titre"><input className="input" placeholder="Inserer le rate"  name="rating" type="text" onChange={this.handleChangeRating}  value={this.state.rating.watching}/></Modal.Body>
 
         <Modal.Footer>
          <Button variant="secondary" onClick={this.handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={()=>{this.handleClose();this.props.handleEdit(this.props.card.id,this.state.title,this.state.year,this.state.image,this.state.rate)}}>
+          <Button variant="primary" onClick={()=>{this.handleClose();
+          this.setMovies(this.props.card._id)
+          
+          
+          
+          }}>
            Save Changes
           </Button>
         </Modal.Footer>
@@ -63,7 +89,7 @@ class Edit extends Component {
 }
 const mapDispatchToProps = dispatch => {
   return{
-           handleEdit:(id,title,year,image,rate)=> dispatch(editMovie(id,title,year,image,rate))
+           handleEdit:(id, newMovie)=> dispatch(editMovie(id, newMovie))
  
   }
 }

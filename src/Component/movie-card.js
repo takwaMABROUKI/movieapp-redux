@@ -16,17 +16,17 @@ import {Link} from 'react-router-dom'
             
                <div className="movie">
             <div className="detail">
-                <img className="img-film" src= {this.props.card.image}/>
+                <img className="img-film" src= {this.props.card.images.poster}/>
                 <h2 className="titre">{this.props.card.title}</h2> 
                 <p className="year">{this.props.card.year}</p> 
                 <StarRatingComponent className="rating"
           name="rate1" 
           starCount={5}
-          value={this.props.card.rate}/>
+          value={this.props.card.rating.watching}/>
           
         
                <div>
-                <Link to={"/" +this.props.card.id}>
+                <Link to={"/" +this.props.card._id}>
                 <button className="description"> Movie Description</button>
                 </Link>
                 </div>
@@ -41,7 +41,7 @@ import {Link} from 'react-router-dom'
 
 
 
-                <button className="bouton-remove" onClick={()=>this.props.handleDelete(this.props.card.id)}>Remove
+                <button className="bouton-remove" onClick={()=>this.props.handleDelete(this.props.card._id)}>Remove
                 </button>
            </div>
            </div>
@@ -53,7 +53,7 @@ import {Link} from 'react-router-dom'
 
  const mapDispatchToProps = dispatch => {
      return{
-        handleDelete: (id) => dispatch(deleteMovie(id)),
+        handleDelete: (_id) => dispatch(deleteMovie(_id)),
       
     
     }
